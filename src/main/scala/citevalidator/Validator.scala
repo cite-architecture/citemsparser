@@ -18,24 +18,25 @@ case class Validator(serviceUrl: URL) {
   /** Run tests defined in text available from  a given [[Source]].
   *
   * @param src Source text of test definitions in JSON format.
-  */
+
   def validate(src: Source): Vector[TestResult] = {
     val s = src.getLines.mkString("\n")
     val json = parse(s)
 
     validate(json)
   }
-
+  */
 
   /** Run tests defined by specification in JSON format.
   *
   * @param src Source text of test definitions in JSON format.
-  */
+
   def validate(jsonText: String): Vector[TestResult] = {
     val json = parse(jsonText)
+    println("VALIDATE FROM PARSED " + json)
     validate(json)
   }
-
+*/
 
 
   /** Run tests defined by specification in JSON format.

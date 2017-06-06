@@ -7,6 +7,7 @@ scalaVersion := "2.11.8"
 
 resolvers += Resolver.jcenterRepo
 libraryDependencies ++=   Seq(
+  "org.scalatest" %% "scalatest" % "3.0.1" % "test",
   "edu.holycross.shot.cite" %% "xcite" % "2.4.0",
   "net.liftweb" %% "lift-json" % "3.0.1"
 )
