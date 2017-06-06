@@ -43,11 +43,17 @@ case class Validator(serviceUrl: URL) {
   * @param json Source text of test definitions as parsed JSON object.
   */
   def validate(json: JValue) : Vector[TestResult] = {
-    val testDef = json.extract[TestDefinition]
-    val requestUrlStr = serviceUrl.toString + testDef.request
-    println("Test definition: " + testDef)
-    val reply = Source.fromURL(requestUrlStr)
-    println("REPLY: " + reply.getLines.mkString("\n"))
+    val tests = (json \\ "test").children
+    for (t <- tests) {
+      val testDef = t.extract[TestDefinition]
+      println("TEST: " + testDef)
+      val requestUrlStr = serviceUrl.toString + testDef.request
+      println("Test definition: " + testDef)
+      val reply = Source.fromURL(requestUrlStr)
+      println("REPLY: " + reply.getLines.mkString("\n"))
+    }
+
+
     Vector[TestResult]()
   }
 }
