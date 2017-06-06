@@ -13,12 +13,16 @@ import net.liftweb.json._
 */
 case class Validator(serviceUrl: URL) {
 
+
+
   /** Run tests defined in text available from  a given [[Source]].
   *
   * @param src Source text of test definitions in JSON format.
   */
   def validate(src: Source): Vector[TestResult] = {
-    val json = parse(src.getLines.mkString("\n"))
+    val s = src.getLines.mkString("\n")
+    val json = parse(s)
+
     validate(json)
   }
 
@@ -32,11 +36,18 @@ case class Validator(serviceUrl: URL) {
     validate(json)
   }
 
+
+
   /** Run tests defined by specification in JSON format.
   *
   * @param json Source text of test definitions as parsed JSON object.
   */
   def validate(json: JValue) : Vector[TestResult] = {
+    val testDef = json.extract[TestDefinition]
+    val requestUrlStr = serviceUrl.toString + testDef.request
+    println("Test definition: " + testDef)
+    val reply = Source.fromURL(requestUrlStr)
+    println("REPLY: " + reply.getLines.mkString("\n"))
     Vector[TestResult]()
   }
 }
