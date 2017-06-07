@@ -2,14 +2,37 @@ package edu.holycross.shot.citemsparser
 
 import edu.holycross.shot.cite._
 
-import derive.key
+
+/** Metadata for any reply in CITE microservices.
+*
+* @param status One of two literal strings, "exception" or "success".
+* @param service Name of the requested service,
+* @param requestUrn Optional string value for an included URN value.
+*/
+case class ReplyMetadata(status: String, service: String, requestUrn: Option[String]) {
 
 
-case class ReplyMetadata(status: String, service: String, requestUrn: Option[String] = None) {
+
+  /** Convert optional string value to optional
+  * URN object.
+  */
+  def urn: Option[Urn] = {
+    requestUrn match {
+      case None => None
+      case strOpt: Option[String] =>
+      val s = strOpt.get
+      if (s.contains("urn:cts")) {
+        Some(CtsUrn(s))
+      } else {
+        Some(Cite2Urn(s))
+      }
+    }
+  }
 
 
 
-
+  /** Determine [[TextReplyType]] of the reply.
+  */
   def textReplyType : TextReplyType.Value = {
     status.toLowerCase match {
       case "exception" => TextReplyType.TextException

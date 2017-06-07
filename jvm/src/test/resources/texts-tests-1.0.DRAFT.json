@@ -8,7 +8,7 @@
       "resultType": "literal",
       "reply": {
           "status": "success",
-          "version":  "1.0.0"
+          "texts":  "1.0.0"
         }
       }
       },
@@ -16,8 +16,11 @@
       "testID": "urn:cite:cite:tests.2017a:texts02",
       "request": "/texts",
       "resultType": "set",
+
       "reply": {
           "status": "success",
+          "service": "/texts",
+          "requestUrn": [],
           "URNs": [
               "urn:cts:citeArch:groupA.work1.ed1:",
               "urn:cts:citeArch:groupA.work1.ed2:",
