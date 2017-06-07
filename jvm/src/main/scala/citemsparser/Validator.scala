@@ -1,13 +1,8 @@
 package edu.holycross.shot.citemsparser
 
 
-object Validator {
-  
-}
-
-
-//import java.net.URL
-//import scala.io.Source
+import java.net.URL
+import scala.io.Source
 
 //import net.liftweb.json._
 
@@ -17,8 +12,8 @@ object Validator {
 *
 * @param serviceUrl Location of the microservice instance.
 */
-//case class Validator(serviceUrl: URL) {
-
+case class Validator(serviceUrl: URL) {
+}
 
 
   /** Run tests defined in text available from  a given [[Source]].
