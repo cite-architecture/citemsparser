@@ -9,13 +9,11 @@ object TextReplyType extends Enumeration {
 
 
 
-
-
-case class TextReplyModel(replyType: TextReplyType.Value, service: String) {
+trait CiteMsReply {
+  def metadata: ReplyMetadata
 }
 
+case class UrnListReply(metadata: ReplyMetadata, data: String) extends CiteMsReply
 
-object TextReplyModel {
 
-
-}
+case class CitableNodeListReply(metadata: ReplyMetadata, data: String) extends CiteMsReply

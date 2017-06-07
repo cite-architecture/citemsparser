@@ -157,7 +157,6 @@ class ReplyMetadataSpec extends FlatSpec {
     assert(metadata.textReplyType == TextReplyType.CitableNodeList)
   }
 
-
   it should "determine the reply type for requests to  /texts/previous" in {
     val prevReq1 = """
     {
