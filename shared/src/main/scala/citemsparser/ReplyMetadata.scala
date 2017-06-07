@@ -38,6 +38,7 @@ case class ReplyMetadata(status: String, service: String, requestUrn: Option[Str
       case "exception" => TextReplyType.TextException
       case "success" => {
           service match {
+            case "/texts" => TextReplyType.UrnList
             case "/texts/urns" => TextReplyType.UrnList
             case s: String => throw CiteMsException(s"Unrecognized or unimplemented value for service ${s}")
           }

@@ -75,7 +75,10 @@ class ReplyMetadataSpec extends FlatSpec {
     }
   }
 
-
+  it should "determine the reply type for requests to the text service" in {
+    val metadata = read[ReplyMetadata](textsReq1)
+    assert(metadata.textReplyType == TextReplyType.UrnList)
+  }
 
 
 }
