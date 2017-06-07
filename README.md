@@ -2,7 +2,7 @@
 
 ## What it is
 
-`citemsparser`  is a cross-platform library to parse replies from CITE microservices, and to validate replies against [specifications CITE microservices](https://github.com/cite-architecture/cite-services-spec).
+`citemsparser`  is a cross-platform library to parse replies from CITE microservices, and to validate replies against [specifications for CITE microservices](https://github.com/cite-architecture/cite-services-spec).
 
 
 
