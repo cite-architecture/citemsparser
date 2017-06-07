@@ -1,4 +1,4 @@
-package edu.holycross.shot.citevalidator
+package edu.holycross.shot.citemsparser
 
 import edu.holycross.shot.cite._
 

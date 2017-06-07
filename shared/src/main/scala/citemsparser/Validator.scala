@@ -1,4 +1,4 @@
-package edu.holycross.shot.citevalidator
+package edu.holycross.shot.citemsparser
 
 import java.net.URL
 import scala.io.Source

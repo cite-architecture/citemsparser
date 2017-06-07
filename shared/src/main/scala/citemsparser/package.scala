@@ -5,6 +5,6 @@ import net.liftweb.json._
 
 
 
-package object citevalidator {
+package object citemsparser {
   implicit val formats = DefaultFormats
 }

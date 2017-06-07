@@ -1,4 +1,4 @@
-package edu.holycross.shot.citevalidator
+package edu.holycross.shot.citemsparser
 
 import edu.holycross.shot.cite._
 
@@ -9,5 +9,5 @@ import edu.holycross.shot.cite._
 * @param success True if test succeeded.
 * @param message Human-readable message.
 */
-case class CitableNodeReply(testId: Cite2Urn, success: Boolean, message: String) {
+case class TestResult(testId: Cite2Urn, success: Boolean, message: String) {
 }
