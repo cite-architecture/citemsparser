@@ -1,9 +1,15 @@
 package edu.holycross.shot.citemsparser
 
-import java.net.URL
-import scala.io.Source
 
-import net.liftweb.json._
+object Validator {
+  
+}
+
+
+//import java.net.URL
+//import scala.io.Source
+
+//import net.liftweb.json._
 
 
 /** Class to validate a CITE microservice at a given URL
@@ -11,7 +17,7 @@ import net.liftweb.json._
 *
 * @param serviceUrl Location of the microservice instance.
 */
-case class Validator(serviceUrl: URL) {
+//case class Validator(serviceUrl: URL) {
 
 
 
@@ -42,7 +48,7 @@ case class Validator(serviceUrl: URL) {
   /** Run tests defined by specification in JSON format.
   *
   * @param json Source text of test definitions as parsed JSON object.
-  */
+
   def validate(json: JValue) : Vector[TestResult] = {
     val tests = (json \\ "test").children
     for (t <- tests) {
@@ -57,4 +63,5 @@ case class Validator(serviceUrl: URL) {
 
     Vector[TestResult]()
   }
-}
+  */
+//}

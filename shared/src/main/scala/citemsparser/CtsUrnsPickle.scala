@@ -2,10 +2,13 @@ package edu.holycross.shot.citemsparser
 
 import edu.holycross.shot.cite._
 
+import derive.key
 
-case class CtsUrnValues(URNs: Vector[String] ) {
+
+case class CtsUrnsPickle(URNs: Vector[String] ) {
+  require(urns.size == URNs.size)
+
   def urns = {
     URNs.map(CtsUrn(_))
   }
-  require(urns.size == URNs.size)
 }

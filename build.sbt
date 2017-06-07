@@ -27,7 +27,7 @@ lazy val crossed = crossProject.in(file(".")).
 
 
         "edu.holycross.shot.cite" %%% "xcite" % "2.2.3",
-        "net.liftweb" %%% "lift-json" % "3.0.1",
+        //"net.liftweb" %%% "lift-json" % "3.0.1",
          "com.lihaoyi" %%% "upickle" % "0.4.3"
       )
     ).
