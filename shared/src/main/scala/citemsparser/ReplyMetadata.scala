@@ -10,8 +10,7 @@ import edu.holycross.shot.cite._
 * @param requestUrn Optional string value for an included URN value.
 */
 case class ReplyMetadata(status: String, service: String, requestUrn: Option[String]) {
-
-
+  require(textsRequestNames.contains(service), s"Unrecognized service ${service}")
 
   /** Convert optional string value to optional
   * URN object.
@@ -29,8 +28,6 @@ case class ReplyMetadata(status: String, service: String, requestUrn: Option[Str
     }
   }
 
-
-
   /** Determine [[TextReplyType]] of the reply.
   */
   def textReplyType : TextReplyType.Value = {
@@ -38,8 +35,20 @@ case class ReplyMetadata(status: String, service: String, requestUrn: Option[Str
       case "exception" => TextReplyType.TextException
       case "success" => {
           service match {
-            case "/texts" => TextReplyType.UrnList
+            case "/texts" => {
+              requestUrn match {
+                case None => TextReplyType.UrnList
+                case strOpt: Some[String] => TextReplyType.CitableNodeList
+              }
+
+
+            }
+            case "/texts/first" => TextReplyType.CitableNodeList
+            case "/texts/last" => TextReplyType.CitableNodeList
+            case "/texts/next" => TextReplyType.CitableNodeList
+            case "/texts/previous" => TextReplyType.CitableNodeList
             case "/texts/urns" => TextReplyType.UrnList
+            
             case s: String => throw CiteMsException(s"Unrecognized or unimplemented value for service ${s}")
           }
       }
