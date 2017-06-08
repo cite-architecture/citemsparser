@@ -5,7 +5,7 @@ import edu.holycross.shot.ohco2._
 
 case class CitableNodePickle(URN: String, text: String, previous: Option[String], next: Option[String], sequence: Int ) {
 
-  /** Create [[CitableNode]] object from pickled source
+  /** Create CitableNode object from pickled source
   */
   def citableNode: CitableNode = {
     CitableNode(CtsUrn(URN), text)
@@ -33,13 +33,13 @@ case class CitableNodePickle(URN: String, text: String, previous: Option[String]
 
 case class CitableNodesPickle(Nodes: Vector[CitableNodePickle] ) {
 
-  /** Create a Vector of [[CitableNode]]s from pickle data.
+  /** Create a Vector of CitableNodes from pickle data.
   */
   def citableNodes: Vector[CitableNode]= {
     Nodes.map(_.citableNode)
   }
 
-  /** Create an OHCO2-model [[Corpus]] object
+  /** Create an OHCO2-model Corpus object
   * from pickle data.
   */
   def corpus: Corpus = {
