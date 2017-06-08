@@ -1,3 +1,3 @@
 # `citemsparser`: release notes
 
-No versions released yet.
+**1.0.0**:  Initial, minimal release.

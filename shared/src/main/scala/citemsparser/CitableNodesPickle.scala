@@ -33,10 +33,15 @@ case class CitableNodePickle(URN: String, text: String, previous: Option[String]
 
 case class CitableNodesPickle(Nodes: Vector[CitableNodePickle] ) {
 
+  /** Create a Vector of [[CitableNode]]s from pickle data.
+  */
   def citableNodes: Vector[CitableNode]= {
     Nodes.map(_.citableNode)
   }
 
+  /** Create an OHCO2-model [[Corpus]] object
+  * from pickle data.
+  */
   def corpus: Corpus = {
     Corpus(citableNodes)
   }
